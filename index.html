@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tara Geomatics | TARA INTERNATIONAL | GIS & Cartography</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-blue: #0A1128;
+            --cyan: #00F2FF;
+            --grid-line: rgba(0, 242, 255, 0.1);
+        }
+        body {
+            background-color: var(--deep-blue);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        h1, h2, .font-tech { font-family: 'Space Grotesk', sans-serif; }
+
+        /* Tech Background - Grid Overlay */
+        .grid-overlay {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Animated Scanline Effect */
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(0, 242, 255, 0.2);
+            position: fixed;
+            z-index: 10;
+            top: 0;
+            pointer-events: none;
+        }
+
+        .hero-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 242, 255, 0.15) 0%, transparent 70%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hero-visual-container {
+            mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-overlay"></div>
+    <div class="scanline" id="scanline"></div>
+    <div class="hero-glow" id="glow"></div>
+
+    <nav class="fixed w-full z-50 px-6 md:px-10 py-6 flex justify-between items-center border-b border-white/10 backdrop-blur-xl">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-[#00F2FF] rounded-sm rotate-45 flex items-center justify-center shadow-[0_0_15px_rgba(0,242,255,0.5)]">
+                <span class="text-black font-bold -rotate-45 text-[10px]">T</span>
+            </div>
+            <div class="text-sm tracking-[0.4em] font-medium uppercase">Tara Geomatics</div>
+        </div>
+        <div class="hidden md:flex gap-10 text-[9px] uppercase tracking-[0.3em]">
+            <a href="#" class="hover:text-[#00F2FF] transition-all">Mission</a>
+            <a href="#" class="hover:text-[#00F2FF] transition-all">GIS Solutions</a>
+            <a href="#" class="hover:text-[#00F2FF] transition-all">Cartography</a>
+            <a href="#" class="border border-[#00F2FF] px-4 py-2 rounded-sm text-[#00F2FF] hover:bg-[#00F2FF] hover:text-black transition-all">Client Portal</a>
+        </div>
+    </nav>
+
+    <section class="relative min-h-screen flex flex-col lg:flex-row items-center px-6 md:px-24 pt-20 overflow-hidden">
+        <div class="relative z-10 w-full lg:w-1/2 pt-10">
+            <p class="text-[#00F2FF] text-xs tracking-[0.6em] uppercase mb-6 opacity-0 translate-y-5" id="parent-brand">TARA INTERNATIONAL GROUP</p>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 opacity-0 translate-y-10 leading-tight" id="main-title">
+                Mapping the <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00F2FF] to-blue-500">Unseen Data.</span>
+            </h1>
+            <p class="text-lg text-slate-400 max-w-xl mb-10 opacity-0 translate-y-10" id="subtitle">
+                Engineering precision GIS and Cartographic workflows for global intelligence, urban planning, and strategic spatial analysis.
+            </p>
+            <div class="flex flex-wrap gap-4 opacity-0 scale-90" id="hero-btn">
+                <button class="px-8 py-4 bg-white text-black font-bold uppercase text-xs tracking-widest hover:bg-[#00F2FF] transition-all">Explore Solutions</button>
+                <button class="px-8 py-4 border border-white/20 text-white font-bold uppercase text-xs tracking-widest hover:border-[#00F2FF] transition-all">View Projects</button>
+            </div>
+        </div>
+
+        <div class="w-full lg:w-1/2 h-[50vh] lg:h-full relative mt-12 lg:mt-0 hero-visual-container">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000" 
+                 class="w-full h-full object-contain mix-blend-screen opacity-50 scale-110" 
+                 id="hero-img" alt="Topography">
+            
+            <div class="absolute top-1/4 right-1/4 w-2 h-2 bg-[#00F2FF] rounded-full animate-ping"></div>
+            <div class="absolute bottom-1/3 left-1/3 w-2 h-2 bg-[#00F2FF] rounded-full animate-ping [animation-delay:1s]"></div>
+        </div>
+    </section>
+
+    <section class="py-20 border-t border-white/5 relative z-10 bg-[#0A1128]/80 backdrop-blur-md">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 px-6 md:px-24 text-center">
+            <div class="stat-item opacity-0">
+                <h4 class="text-3xl md:text-5xl font-bold text-[#00F2FF] mb-2">0.02cm</h4>
+                <p class="text-[9px] text-slate-500 uppercase tracking-[0.3em]">Survey Precision</p>
+            </div>
+            <div class="stat-item opacity-0">
+                <h4 class="text-3xl md:text-5xl font-bold text-[#00F2FF] mb-2">500+</h4>
+                <p class="text-[9px] text-slate-500 uppercase tracking-[0.3em]">Regions Mapped</p>
+            </div>
+            <div class="stat-item opacity-0">
+                <h4 class="text-3xl md:text-5xl font-bold text-[#00F2FF] mb-2">10TB+</h4>
+                <p class="text-[9px] text-slate-500 uppercase tracking-[0.3em]">Spatial Data</p>
+            </div>
+            <div class="stat-item opacity-0">
+                <h4 class="text-3xl md:text-5xl font-bold text-[#00F2FF] mb-2">24/7</h4>
+                <p class="text-[9px] text-slate-500 uppercase tracking-[0.3em]">Live Monitoring</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Hero Glow Follows Mouse
+        const glow = document.getElementById('glow');
+        document.addEventListener('mousemove', (e) => {
+            gsap.to(glow, { x: e.clientX - 300, y: e.clientY - 300, duration: 0.6 });
+        });
+
+        // Scanline Animation
+        gsap.to("#scanline", {
+            top: "100%",
