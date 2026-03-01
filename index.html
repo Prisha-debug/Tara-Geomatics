@@ -1,68 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tara Geomatics | GIS & Cartography Precision</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
-    <style>
-        body { background-color: #0A1128; color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; }
-        .font-tech { font-family: 'Space Grotesk', sans-serif; }
-        .grid-overlay {
-            position: fixed; inset: 0;
-            background-image: linear-gradient(rgba(0, 242, 255, 0.1) 1px, transparent 1px), 
-                              linear-gradient(90deg, rgba(0, 242, 255, 0.1) 1px, transparent 1px);
-            background-size: 40px 40px; z-index: 1; pointer-events: none;
-        }
-        .hero-glow {
-            position: absolute; width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(0, 242, 255, 0.15) 0%, transparent 70%);
-            z-index: 2; pointer-events: none;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Map Vault | Tara Geomatics | TARA INTERNATIONAL</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root { --cyan: #00F2FF; --deep-blue: #0A1128; }
+body { background-color: var(--deep-blue); color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+.font-tech { font-family: 'Space Grotesk', sans-serif; }
+
+/* Tech Grid Background */
+.grid-overlay {
+	position: fixed; inset: 0;
+	background-image: linear-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 1px), 
+	linear-gradient(90deg, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
+	background-size: 40px 40px; z-index: 1; pointer-events: none;
+}
+
+.map-card {
+	background: rgba(255, 255, 255, 0.03);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.map-card:hover {
+	border-color: var(--cyan);
+	background: rgba(0, 242, 255, 0.05);
+	transform: translateY(-8px);
+}
+</style>
 </head>
 <body>
-    <div class="grid-overlay"></div>
-    <div class="hero-glow" id="glow"></div>
+<div class="grid-overlay"></div>
 
-    <nav class="fixed w-full z-50 px-10 py-6 flex justify-between items-center backdrop-blur-md border-b border-white/10">
-        <div class="flex items-center gap-3">
-            <div class="w-8 h-8 bg-[#00F2FF] rounded-sm rotate-45 flex items-center justify-center shadow-[0_0_15px_#00F2FF]">
-                <span class="text-black font-bold -rotate-45 text-[10px]">T</span>
-            </div>
-            <div class="text-sm tracking-[0.4em] font-medium uppercase font-tech">Tara Geomatics</div>
-        </div>
-        <div class="hidden md:flex gap-8 text-[9px] uppercase tracking-[0.2em]">
-            <a href="#" class="hover:text-[#00F2FF]">GIS Solutions</a>
-            <a href="#" class="hover:text-[#00F2FF]">Cartography</a>
-            <a href="#" class="border border-[#00F2FF] px-4 py-2 text-[#00F2FF]">Client Portal</a>
-        </div>
-    </nav>
+<nav class="fixed w-full z-50 px-10 py-6 flex justify-between items-center backdrop-blur-md border-b border-white/10">
+<div class="flex items-center gap-3">
+<a href="index.html" class="flex items-center gap-3">
+<div class="w-8 h-8 bg-[#00F2FF] rounded-sm rotate-45 flex items-center justify-center shadow-[0_0_15px_#00F2FF]">
+<span class="text-black font-bold -rotate-45 text-[10px]">T</span>
+</div>
+<div class="text-sm tracking-[0.4em] font-medium uppercase font-tech">Tara Geomatics</div>
+</a>
+</div>
+<div class="hidden md:flex gap-8 text-[9px] uppercase tracking-[0.2em]">
+<a href="about.html" class="...">About Us</a>
+<a href="projects.html" class="...">Projects</a>
+<a href="vault.html" class="text-[#00F2FF] transition-all border-b border-[#00F2FF]">Map Vault</a>
+<a href="contact.html" class="...">Contact Us</a>
+</div>
+</nav>
 
-    <section class="relative h-screen flex items-center px-10 md:px-24">
-        <div class="relative z-10">
-            <p class="text-[#00F2FF] text-xs tracking-[0.5em] uppercase mb-4 opacity-0" id="brand">TARA INTERNATIONAL</p>
-            <h1 class="text-6xl md:text-8xl font-bold font-tech mb-6 opacity-0" id="title">Mapping the <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00F2FF] to-blue-500">Unseen Data.</span></h1>
-            <p class="text-slate-400 max-w-lg mb-8 opacity-0" id="desc">Engineering precision GIS and Cartographic workflows for global intelligence and strategic spatial analysis.</p>
-            <button class="px-10 py-4 bg-white text-black font-bold uppercase text-[10px] tracking-widest opacity-0" id="btn">Explore Solutions</button>
-        </div>
-    </section>
+<section class="pt-40 pb-16 px-10 md:px-24 relative z-10 text-center">
+<h2 class="text-[#00F2FF] text-xs tracking-[1em] uppercase mb-4 opacity-0 animate-fade">Digital Repository</h2>
+<h1 class="text-5xl md:text-7xl font-bold font-tech mb-6 opacity-0 animate-fade">TARA GEOMATICS.</h1>
+<p class="text-slate-400 max-w-2xl mx-auto opacity-0 animate-fade">Access premium cartographic datasets and GIS layers curated by the TARA INTERNATIONAL engineering team.</p>
+</section>
 
-    <script>
-        const glow = document.getElementById('glow');
-        document.addEventListener('mousemove', (e) => {
-            gsap.to(glow, { x: e.clientX - 300, y: e.clientY - 300, duration: 0.6 });
-        });
+<section class="pb-32 px-6 md:px-24 relative z-10">
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        window.addEventListener('load', () => {
-            const tl = gsap.timeline();
-            tl.to("#brand", { opacity: 1, y: -10, duration: 1 })
-              .to("#title", { opacity: 1, y: -10, duration: 1 }, "-=0.6")
-              .to("#desc", { opacity: 1, y: -10, duration: 1 }, "-=0.8")
-              .to("#btn", { opacity: 1, duration: 1 }, "-=0.5");
-        });
-    </script>
+<div class="map-card p-6 flex flex-col h-full opacity-0 animate-card">
+<div class="relative aspect-video mb-6 bg-slate-900 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1548345680-f5475ee511d7?auto=format&fit=crop&q=80" class="w-full h-full object-cover opacity-60">
+</div>
+<h3 class="text-xl font-tech mb-2">Urban Infrastructure Grid</h3>
+<p class="text-xs text-slate-500 mb-6 flex-grow">Scale 1:5000 | Comprehensive utility and road centerlines for metropolitan planning.</p>
+<div class="flex items-center justify-between pt-6 border-t border-white/10">
+<span class="text-2xl font-bold font-tech text-[#00F2FF]">$85.00</span>
+<button class="bg-white text-black px-5 py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-[#00F2FF] transition-all">Purchase</button>
+</div>
+</div>
+
+<div class="map-card p-6 flex flex-col h-full opacity-0 animate-card">
+<div class="relative aspect-video mb-6 bg-slate-900 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80" class="w-full h-full object-cover opacity-60">
+</div>
+<h3 class="text-xl font-tech mb-2">Digital Terrain Model (DTM)</h3>
+<p class="text-xs text-slate-500 mb-6 flex-grow">1-Meter Resolution | High-fidelity LiDAR-based elevation data for hydrological studies.</p>
+<div class="flex items-center justify-between pt-6 border-t border-white/10">
+<span class="text-2xl font-bold font-tech text-[#00F2FF]">$120.00</span>
+<button class="bg-white text-black px-5 py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-[#00F2FF] transition-all">Purchase</button>
+</div>
+</div>
+
+<div class="map-card p-6 flex flex-col h-full opacity-0 animate-card">
+<div class="relative aspect-video mb-6 bg-slate-900 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80" class="w-full h-full object-cover opacity-60">
+</div>
+<h3 class="text-xl font-tech mb-2">Multispectral Crop Index</h3>
+<p class="text-xs text-slate-500 mb-6 flex-grow">Satellite Analysis | NDVI mapping for regional agricultural yield forecasting.</p>
+<div class="flex items-center justify-between pt-6 border-t border-white/10">
+<span class="text-2xl font-bold font-tech text-[#00F2FF]">$65.00</span>
+<button class="bg-white text-black px-5 py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-[#00F2FF] transition-all">Purchase</button>
+</div>
+</div>
+</div>
+</section>
+
+<section class="py-20 px-6 md:px-24 border-t border-white/5 bg-white/5 relative z-10">
+<div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-12">
+<div class="text-center lg:text-left">
+<h3 class="text-3xl md:text-4xl font-tech font-bold mb-4">Can't find a specific region?</h3>
+<p class="text-slate-400 max-w-md">Our team can pull custom datasets, perform fresh LiDAR sweeps, or digitize legacy records on demand.</p>
+</div>
+
+<div class="flex flex-col md:flex-row gap-6 w-full lg:w-auto">
+<a href="contact.html" class="group flex items-center justify-between gap-10 bg-white/5 border border-white/10 p-8 hover:border-[#00F2FF] transition-all">
+<div>
+<span class="text-[10px] uppercase tracking-widest text-[#00F2FF] block mb-1">Custom Project</span>
+<span class="text-xl font-tech font-bold">Start a Query</span>
+</div>
+<div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-[#00F2FF] group-hover:text-black transition-all">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+</div>
+</a>
+
+<div class="bg-white/10 border border-white/20 p-8">
+<span class="text-[10px] uppercase tracking-widest text-slate-500 block mb-1">Support Hotline</span>
+<span class="text-xl font-tech font-bold">+91 11 4050 6070</span>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="py-12 border-t border-white/10 text-center relative z-10 bg-[#0A1128]">
+<p class="text-[10px] tracking-[0.4em] text-slate-500 uppercase">© 2026 Tara Geomatics | A Division of TARA INTERNATIONAL</p>
+</footer>
+
+<script>
+window.addEventListener('load', () => {
+	const tl = gsap.timeline();
+	tl.to(".animate-fade", { opacity: 1, y: -20, stagger: 0.2, duration: 1 })
+	.to(".animate-card", { opacity: 1, y: -20, stagger: 0.15, duration: 0.8 }, "-=0.5");
+});
+</script>
 </body>
 </html>
