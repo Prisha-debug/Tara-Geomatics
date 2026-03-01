@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Tara Geomatics | TARA INTERNATIONAL</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root { --cyan: #00F2FF; --deep-blue: #0A1128; }
+body { background-color: var(--deep-blue); color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+.font-tech { font-family: 'Space Grotesk', sans-serif; }
+
+.grid-overlay {
+	position: fixed; inset: 0;
+	background-image: linear-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 1px), 
+	linear-gradient(90deg, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
+	background-size: 40px 40px; z-index: 1; pointer-events: none;
+}
+
+input, select, textarea {
+	background: rgba(255, 255, 255, 0.03) !important;
+	border: 1px solid rgba(255, 255, 255, 0.1) !important;
+	color: white !important;
+	padding: 1rem !important;
+	font-size: 0.875rem !important;
+}
+
+input:focus, select:focus, textarea:focus {
+	outline: none !important;
+	border-color: var(--cyan) !important;
+	background: rgba(0, 242, 255, 0.05) !important;
+}
+
+.contact-card {
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	background: rgba(255, 255, 255, 0.02);
+	transition: all 0.3s ease;
+}
+.contact-card:hover { border-color: var(--cyan); }
+</style>
+</head>
+<body>
+<div class="grid-overlay"></div>
+
+<nav class="fixed w-full z-50 px-10 py-6 flex justify-between items-center backdrop-blur-md border-b border-white/10">
+<div class="flex items-center gap-3">
+<a href="index.html" class="flex items-center gap-3">
+<div class="w-8 h-8 bg-[#00F2FF] rounded-sm rotate-45 flex items-center justify-center shadow-[0_0_15px_#00F2FF]">
+<span class="text-black font-bold -rotate-45 text-[10px]">T</span>
+</div>
+<div class="text-sm tracking-[0.4em] font-medium uppercase font-tech">Tara Geomatics</div>
+</a>
+</div>
+<div class="hidden md:flex gap-8 text-[9px] uppercase tracking-[0.2em]">
+<a href="about.html" class="hover:text-[#00F2FF] transition-all">About Us</a>
+<a href="projects.html" class="hover:text-[#00F2FF] transition-all">Projects</a>
+<a href="vault.html" class="hover:text-[#00F2FF] transition-all uppercase">The Vault</a> 
+<a href="contact.html" class="text-[#00F2FF] border-b border-[#00F2FF]">Contact Us</a>
+</div>
+</nav>
+
+<section class="pt-48 pb-20 px-10 md:px-24 relative z-10">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-start">
+
+<div class="reveal">
+<h2 class="text-[#00F2FF] text-xs tracking-[1em] uppercase mb-6">Connect</h2>
+<h1 class="text-5xl md:text-7xl font-bold font-tech mb-8 leading-tight">Define Your <br><span class="italic text-blue-400">Coordinates.</span></h1>
+<p class="text-slate-400 text-lg mb-12 max-w-md leading-relaxed">
+Whether you're looking for a regional survey, GIS infrastructure, or premium data from our vault, our engineering team is standing by.
+</p>
+
+<div class="space-y-6">
+<div class="contact-card p-6 flex gap-6 items-center">
+<div class="w-12 h-12 border border-[#00F2FF]/30 flex items-center justify-center text-[#00F2FF]">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
+</div>
+<div>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest">Global HQ</p>
+<p class="font-tech text-lg">New Delhi, India</p>
+</div>
+</div>
+<div class="contact-card p-6 flex gap-6 items-center">
+<div class="w-12 h-12 border border-[#00F2FF]/30 flex items-center justify-center text-[#00F2FF]">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+</div>
+<div>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest">Inquiries</p>
+<p class="font-tech text-lg">info@tarageomatics.com</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="bg-white/5 border border-white/10 p-10 backdrop-blur-xl relative reveal" style="transition-delay: 0.2s;">
+<div class="absolute -top-px -left-px w-10 h-10 border-t border-l border-[#00F2FF]"></div>
+<h3 class="text-2xl font-tech mb-8 italic">Geospatial Inquiry Form</h3>
+
+<form action="#" class="space-y-6">
+<div class="grid md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="text-[10px] uppercase tracking-widest text-slate-500">Full Name</label>
+<input type="text" placeholder="John Doe">
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[10px] uppercase tracking-widest text-slate-500">Project Type</label>
+<select>
+<option>GIS Analysis</option>
+<option>Cartography</option>
+<option>LiDAR Survey</option>
+<option>Custom Data</option>
+</select>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[10px] uppercase tracking-widest text-slate-500">Project Coordinates / Area</label>
+<input type="text" placeholder="Lat/Long or Region Name">
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[10px] uppercase tracking-widest text-slate-500">Briefing</label>
+<textarea rows="4" placeholder="Describe your data requirements..."></textarea>
+</div>
+<button type="submit" class="w-full bg-[#00F2FF] text-black font-bold uppercase text-xs tracking-[0.4em] py-5 hover:shadow-[0_0_25px_#00F2FF] transition-all">
+Transmit Data
+</button>
+</form>
+</div>
+</div>
+</section>
+
+<footer class="py-12 border-t border-white/10 text-center relative z-10 bg-[#0A1128]">
+<p class="text-[10px] tracking-[0.4em] text-slate-500 uppercase">© 2026 Tara Geomatics | A Division of TARA INTERNATIONAL</p>
+</footer>
+
+<script>
+window.addEventListener('load', () => {
+	gsap.from(".reveal", { opacity: 0, y: 30, duration: 1, stagger: 0.2 });
+});
+</script>
+</body>
+</html>
