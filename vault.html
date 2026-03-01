@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vault | Tara Geomatics | TARA INTERNATIONAL</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root { --cyan: #00F2FF; --deep-blue: #0A1128; }
+body { background-color: var(--deep-blue); color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+.font-tech { font-family: 'Space Grotesk', sans-serif; }
+
+/* Cyber Grid Background */
+.grid-overlay {
+	position: fixed; inset: 0;
+	background-image: linear-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 1px), 
+	linear-gradient(90deg, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
+	background-size: 40px 40px; z-index: 1; pointer-events: none;
+}
+
+.map-card {
+	background: rgba(255, 255, 255, 0.02);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.map-card:hover {
+	border-color: var(--cyan);
+	background: rgba(0, 242, 255, 0.04);
+	transform: translateY(-10px);
+	box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+.status-dot {
+	width: 8px; height: 8px; background: var(--cyan);
+	border-radius: 50%; display: inline-block;
+	box-shadow: 0 0 10px var(--cyan);
+	margin-right: 8px;
+}
+</style>
+</head>
+<body>
+<div class="grid-overlay"></div>
+
+<nav class="fixed w-full z-50 px-10 py-6 flex justify-between items-center backdrop-blur-md border-b border-white/10">
+<div class="flex items-center gap-3">
+<a href="index.html" class="flex items-center gap-3">
+<div class="w-8 h-8 bg-[#00F2FF] rounded-sm rotate-45 flex items-center justify-center shadow-[0_0_15px_#00F2FF]">
+<span class="text-black font-bold -rotate-45 text-[10px]">T</span>
+</div>
+<div class="text-sm tracking-[0.4em] font-medium uppercase font-tech">Tara Geomatics</div>
+</a>
+</div>
+<div class="hidden md:flex gap-8 text-[9px] uppercase tracking-[0.2em]">
+<a href="about.html" class="hover:text-[#00F2FF] transition-all">About Us</a>
+<a href="projects.html" class="hover:text-[#00F2FF] transition-all">Projects</a>
+<a href="vault.html" class="text-[#00F2FF] border-b border-[#00F2FF]">The Vault</a> 
+<a href="contact.html" class="hover:text-[#00F2FF] transition-all">Contact Us</a>
+</div>
+</nav>
+
+<section class="pt-48 pb-16 px-10 md:px-24 relative z-10">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end gap-8">
+<div class="reveal">
+<h2 class="text-[#00F2FF] text-xs tracking-[1em] uppercase mb-4">Secure Assets</h2>
+<h1 class="text-5xl md:text-7xl font-bold font-tech leading-tight">Cartographic <br><span class="italic text-blue-400">Inventory.</span></h1>
+</div>
+<div class="text-right hidden md:block reveal">
+<p class="text-[10px] text-slate-500 uppercase tracking-widest mb-2">Vault Status</p>
+<div class="flex items-center justify-end font-tech text-sm">
+<span class="status-dot animate-pulse"></span> SYSTEM ENCRYPTED / ACTIVE
+</div>
+</div>
+</div>
+</section>
+
+<section class="pb-32 px-6 md:px-24 relative z-10">
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+<div class="map-card p-8 flex flex-col h-full reveal-card">
+<div class="relative aspect-video mb-8 bg-slate-900 border border-white/5 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80" class="w-full h-full object-cover opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
+<div class="absolute bottom-4 left-4 flex gap-2">
+<span class="text-[8px] bg-black/80 px-2 py-1 border border-cyan-500/30">GIS READY</span>
+</div>
+</div>
+<h3 class="text-xl font-tech mb-3 uppercase tracking-wider">Regional Topo Dataset</h3>
+<p class="text-xs text-slate-400 mb-8 flex-grow leading-relaxed">
+Precise 1:5000 scale vector maps with high-density contouring and hydrology layers. Perfect for hydrological modeling.
+</p>
+<div class="flex items-center justify-between pt-6 border-t border-white/10">
+<span class="text-2xl font-bold font-tech text-[#00F2FF]">$95.00</span>
+<button class="bg-white text-black px-6 py-2 text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#00F2FF] transition-all">Download</button>
+</div>
+</div>
+
+<div class="map-card p-8 flex flex-col h-full reveal-card">
+<div class="relative aspect-video mb-8 bg-slate-900 border border-white/5 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1548345680-f5475ee511d7?auto=format&fit=crop&q=80" class="w-full h-full object-cover opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
+<div class="absolute bottom-4 left-4 flex gap-2">
+<span class="text-[8px] bg-black/80 px-2 py-1 border border-cyan-500/30">LiDAR DTM</span>
+</div>
+</div>
+<h3 class="text-xl font-tech mb-3 uppercase tracking-wider">Urban Grid Analysis</h3>
+<p class="text-xs text-slate-400 mb-8 flex-grow leading-relaxed">
+High-resolution Digital Terrain Model (DTM) featuring utility networks and transport hub coordinates.
+</p>
+<div class="flex items-center justify-between pt-6 border-t border-white/10">
+<span class="text-2xl font-bold font-tech text-[#00F2FF]">$145.00</span>
+<button class="bg-white text-black px-6 py-2 text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#00F2FF] transition-all">Download</button>
+</div>
+</div>
+
+<div class="map-card p-8 flex flex-col h-full reveal-card">
+<div class="relative aspect-video mb-8 bg-slate-900 border border-white/5 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80" class="w-full h-full object-cover opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
+<div class="absolute bottom-4 left-4 flex gap-2">
+<span class="text-[8px] bg-black/80 px-2 py-1 border border-cyan-500/30">MULTISPECTRAL</span>
+</div>
+</div>
+<h3 class="text-xl font-tech mb-3 uppercase tracking-wider">Crop Yield Indices</h3>
+<p class="text-xs text-slate-400 mb-8 flex-grow leading-relaxed">
+Satellite-derived NDVI analysis for regional agricultural zones. Processed for agricultural planning Q1 2026.
+</p>
+<div class="flex items-center justify-between pt-6 border-t border-white/10">
+<span class="text-2xl font-bold font-tech text-[#00F2FF]">$75.00</span>
+<button class="bg-white text-black px-6 py-2 text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#00F2FF] transition-all">Download</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="py-24 px-6 md:px-24 bg-white/5 relative z-10 border-t border-white/5">
+<div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-12">
+<div class="text-center lg:text-left">
+<h3 class="text-3xl md:text-4xl font-tech font-bold mb-4 italic">Need Custom Analysis?</h3>
+<p class="text-slate-400 max-w-md">Our engineering team can pull specific datasets or digitize legacy records on request.</p>
+</div>
+<div class="flex gap-6">
+<a href="contact.html" class="bg-[#00F2FF] text-black font-bold uppercase text-[10px] tracking-widest px-10 py-5 hover:shadow-[0_0_20px_#00F2FF] transition-all">Submit Query</a>
+</div>
+</div>
+</section>
+
+<footer class="py-12 border-t border-white/10 text-center relative z-10 bg-[#0A1128]">
+<p class="text-[10px] tracking-[0.4em] text-slate-500 uppercase">© 2026 Tara Geomatics | A Division of TARA INTERNATIONAL</p>
+</footer>
+
+<script>
+window.addEventListener('load', () => {
+	const tl = gsap.timeline();
+	tl.from(".reveal", { opacity: 0, y: 30, stagger: 0.2, duration: 1 })
+	.from(".reveal-card", { opacity: 0, scale: 0.95, stagger: 0.15, duration: 0.8 }, "-=0.5");
+});
+</script>
+</body>
+</html>
